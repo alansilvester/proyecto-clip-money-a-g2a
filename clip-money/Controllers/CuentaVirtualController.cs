@@ -8,7 +8,7 @@ using clip_money.Models;
 
 namespace clip_money.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [RoutePrefix("api/CuentaVirtual")]
     public class CuentaVirtualController : ApiController
     {
