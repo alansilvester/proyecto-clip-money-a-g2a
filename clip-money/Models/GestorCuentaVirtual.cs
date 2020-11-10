@@ -32,11 +32,11 @@ namespace clip_money.Models
                     string cvu = dr.GetString(2).Trim();
                     string nroCuenta = dr.GetString(3).Trim();
                     decimal montoDescubierto = dr.GetDecimal(4);
-                    //Cliente idCliente = dr.GetInt32(5);
-                    //TipoCuentaVirtual idTipoCuenta = dr.GetByte(6);
-                    //Estado idEstado = dr.GetByte(7);
+                    Cliente idCliente = dr.GetInt32(5);
+                    TipoCuentaVirtual idTipoCuenta = dr.GetByte(6);
+                    Estado idEstado = dr.GetByte(7);
 
-                    CuentaVirtual cv = new CuentaVirtual(id, alias, cvu, nroCuenta, montoDescubierto/*, idCliente, idTipoCuenta, idEstado*/);
+                    CuentaVirtual cv = new CuentaVirtual(id, alias, cvu, nroCuenta, montoDescubierto, idCliente, idTipoCuenta, idEstado);
 
                     lista.Add(cv);
                 }
@@ -67,11 +67,11 @@ namespace clip_money.Models
                     string cvu = dr.GetString(2);
                     string nroCuenta = dr.GetString(3);
                     decimal montoDescubierto = dr.GetDecimal(4);
-                    //Cliente idCliente = dr.GetInt32(5);
-                    //TipoCuentaVirtual idTipoCuenta = dr.GetByte(6);
-                    //Estado idEstado = dr.GetByte(7);
+                    Cliente idCliente = dr.GetInt32(5);
+                    TipoCuentaVirtual idTipoCuenta = dr.GetByte(6);
+                    Estado idEstado = dr.GetByte(7);
 
-                    cv = new CuentaVirtual(id, alias, cvu, nroCuenta, montoDescubierto/*, idCliente, idTipoCuenta, idEstado*/);
+                    cv = new CuentaVirtual(id, alias, cvu, nroCuenta, montoDescubierto, idCliente, idTipoCuenta, idEstado);
                 }
                 dr.Close();
             }
@@ -96,9 +96,9 @@ namespace clip_money.Models
                 comm.Parameters.Add(new SqlParameter("@cvu", nueva.Cvu));
                 comm.Parameters.Add(new SqlParameter("@nroCuenta", nueva.NroCuenta));
                 comm.Parameters.Add(new SqlParameter("@montoDescubierto", nueva.MontoDescubierto));
-                //comm.Parameters.Add(new SqlParameter("@idCliente", nueva.IdCliente));
-                //comm.Parameters.Add(new SqlParameter("@idTipoCuenta", nueva.IdTipoCuenta));
-                //comm.Parameters.Add(new SqlParameter("@idEstado", nueva.IdEstado));
+                comm.Parameters.Add(new SqlParameter("@idCliente", nueva.IdCliente));
+                comm.Parameters.Add(new SqlParameter("@idTipoCuenta", nueva.IdTipoCuenta));
+                comm.Parameters.Add(new SqlParameter("@idEstado", nueva.IdEstado));
 
                 comm.ExecuteNonQuery();
             }
@@ -140,9 +140,9 @@ namespace clip_money.Models
                 comm.Parameters.Add(new SqlParameter("@cvu", mod.Cvu));
                 comm.Parameters.Add(new SqlParameter("@nroCuenta", mod.NroCuenta));
                 comm.Parameters.Add(new SqlParameter("@montoDescubierto", mod.MontoDescubierto));
-                //comm.Parameters.Add(new SqlParameter("@idCliente", mod.IdCliente));
-                //comm.Parameters.Add(new SqlParameter("@idTipoCuenta", mod.IdTipoCuenta));
-                //comm.Parameters.Add(new SqlParameter("@idEstado", mod.IdEstado));
+                comm.Parameters.Add(new SqlParameter("@idCliente", mod.IdCliente));
+                comm.Parameters.Add(new SqlParameter("@idTipoCuenta", mod.IdTipoCuenta));
+                comm.Parameters.Add(new SqlParameter("@idEstado", mod.IdEstado));
 
                 comm.ExecuteNonQuery();
             }

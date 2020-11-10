@@ -34,8 +34,8 @@ namespace clip_money.Models
                     DateTime fechaNacimiento = dr.GetDateTime(4);
                     //TipoDni idTipoDni = dr.GetByte(5);
                     string numDni = dr.GetString(6).Trim();
-                    //byte fotoFrenteDni = dr.GetByte(7);
-                    //byte fotoDorsoDni = dr.GetByte(8);
+                    byte fotoFrenteDni = dr.GetByte(7);
+                    byte fotoDorsoDni = dr.GetByte(8);
                     //Localidad idLocalidad = dr.GetInt32(9);
                     string domicilio = dr.GetString(10).Trim();
                     string telefono = dr.GetString(11).Trim();
@@ -44,7 +44,7 @@ namespace clip_money.Models
                     string nombreUsuario = dr.GetString(14).Trim();
                     string password = dr.GetString(15).Trim();
 
-                    Cliente cli = new Cliente(id, nombre, apellido, sexo, fechaNacimiento/*, idTipoDni*/, numDni/*, fotoFrenteDni, fotoDorsoDni*//*, idLocalidad*/, domicilio, telefono, email/*, idSituacionCrediticia*/, nombreUsuario, password);
+                    Cliente cli = new Cliente(id, nombre, apellido, sexo, fechaNacimiento/*, idTipoDni*/, numDni, fotoFrenteDni, fotoDorsoDni/*, idLocalidad*/, domicilio, telefono, email/*, idSituacionCrediticia*/, nombreUsuario, password);
 
                     lista.Add(cli);
                 }
@@ -77,8 +77,8 @@ namespace clip_money.Models
                     DateTime fechaNacimiento = dr.GetDateTime(4);
                     //TipoDni idTipoDni = dr.GetByte(5);
                     string numDni = dr.GetString(6);
-                    //byte fotoFrenteDni = dr.GetByte(7);
-                    //byte fotoDorsoDni = dr.GetByte(8);
+                    byte fotoFrenteDni = dr.GetByte(7);
+                    byte fotoDorsoDni = dr.GetByte(8);
                     //Localidad idLocalidad = dr.GetInt32(9);
                     string domicilio = dr.GetString(10);
                     string telefono = dr.GetString(11);
@@ -87,7 +87,7 @@ namespace clip_money.Models
                     string nombreUsuario = dr.GetString(14);
                     string password = dr.GetString(15);
 
-                    cli = new Cliente(id, nombre, apellido, sexo, fechaNacimiento/*, idTipoDni*/, numDni/*, fotoFrenteDni, fotoDorsoDni*//*, idLocalidad*/, domicilio, telefono, email/*, idSituacionCrediticia*/, nombreUsuario, password);
+                    cli = new Cliente(id, nombre, apellido, sexo, fechaNacimiento/*, idTipoDni*/, numDni, fotoFrenteDni, fotoDorsoDni/*, idLocalidad*/, domicilio, telefono, email/*, idSituacionCrediticia*/, nombreUsuario, password);
                 }
                 dr.Close();
             }

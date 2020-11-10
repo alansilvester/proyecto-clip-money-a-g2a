@@ -12,34 +12,40 @@ namespace clip_money.Models
         private string cvu;
         private string nroCuenta;
         private decimal montoDescubierto;
-        //private Cliente idCliente;
-        //private TipoCuentaVirtual idTipoCuenta;
-        //private Estado idEstado;
+        private Cliente idCliente;
+        private TipoCuentaVirtual idTipoCuenta;
+        private Estado idEstado;
 
         public CuentaVirtual()
         {
 
         }
 
-        public CuentaVirtual(long id, string alias, string cvu, string nroCuenta, decimal montoDescubierto/*, Cliente idCliente, TipoCuentaVirtual idTipoCuenta, Estado idEstado*/)
+        public CuentaVirtual(long id, string alias, string cvu, string nroCuenta, decimal montoDescubierto, Cliente idCliente, TipoCuentaVirtual idTipoCuenta, Estado idEstado)
         {
             this.id = id;
             this.alias = alias;
             this.cvu = cvu;
             this.nroCuenta = nroCuenta;
             this.montoDescubierto = montoDescubierto;
-            //this.idCliente = idCliente;
-            //this.idTipoCuenta = idTipoCuenta;
-            //this.idEstado = idEstado;
+            this.idCliente = idCliente;
+            this.idTipoCuenta = idTipoCuenta;
+            this.idEstado = idEstado;
+
+            operaciones = new HashSet<Operaciones>();
+            cliente = new HashSet<Cliente>();
         }
         public long Id { get => id; set => id = value; }
         public string Alias { get => alias; set => alias = value; }
         public string Cvu { get => cvu; set => cvu = value; }
         public string NroCuenta { get => nroCuenta; set => nroCuenta = value; }
         public decimal MontoDescubierto { get => montoDescubierto; set => montoDescubierto = value; }
-        //public Cliente IdCliente { get => idCliente; set => idCliente = value; }
-        //public TipoCuentaVirtual IdTipoCuenta { get => idTipoCuenta; set => idTipoCuenta = value; }
-        //public Estado IdEstado { get => idEstado; set => idEstado = value; }
+        public Cliente IdCliente { get => idCliente; set => idCliente = value; }
+        public TipoCuentaVirtual IdTipoCuenta { get => idTipoCuenta; set => idTipoCuenta = value; }
+        public Estado IdEstado { get => idEstado; set => idEstado = value; }
+
+        public virtual ICollection<Cliente> cliente { get => cliente; set => cliente = value; }
+        public virtual ICollection<Operaciones> operaciones { get => operaciones; set => operaciones = value; }
 
         // Se genera un alias de forma aleatoria.
         public void aliasAzar()

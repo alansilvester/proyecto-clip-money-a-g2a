@@ -8,7 +8,7 @@ using clip_money.Models;
 
 namespace clip_money.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [RoutePrefix("api/Cliente")]
     public class ClienteController : ApiController
     {
@@ -30,21 +30,21 @@ namespace clip_money.Controllers
         public void Post([FromBody] Cliente nuevo)
         {
             GestorCliente gCliente = new GestorCliente();
-            //return gCliente.nuevoCliente(nuevo);
+            gCliente.nuevoCliente(nuevo);
         }
 
         // PUT: api/Cliente/"número de id"
-        public void Put(int id, [FromBody] Cliente cli)
+        public void Put(Cliente cli)
         {
             GestorCliente gCliente = new GestorCliente();
-            //return gCliente.modificarCliente(id);
+            gCliente.modificarCliente(cli);
         }
 
         // DELETE: api/Cliente/"número de id"
         public void Delete(int id)
         {
             GestorCliente gCliente = new GestorCliente();
-            //return gCliente.eliminarCliente(id);
+            gCliente.eliminarCliente(id);
         }
     }
 }
